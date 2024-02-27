@@ -2,7 +2,7 @@
 // @name         Buildkite: Build and Env links on pipelines
 // @description  Add app build & environments pipeline links on pipelines of GreenSync projects
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @author       Brendan Weibrecht
 // @match        https://buildkite.com/gs/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=buildkite.com
@@ -28,7 +28,7 @@
     }
 
     const addLink = (text, url) => {
-        const githubIconLink = document.querySelector(`#pipeline-header header a[href*="https://github.com/"] svg`).parentNode
+        const githubIconLink = document.querySelector(`div[data-testid="PipelineHeader"] a[href*="https://github.com/"] svg`).parentNode
         const deploymentsLink = githubIconLink.cloneNode(true)
         deploymentsLink.href = url
         deploymentsLink.title = 'https://buildkite.com' + url
